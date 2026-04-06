@@ -4,17 +4,15 @@ from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnecti
 
 root_agent = Agent(
     model='gemini-2.5-flash',
-    name='root_agent',
-    description='An expert otaku assistant for discovering anime.',
+    name='flight_checker',
+    description='Get flight details',
     instruction="""
-        You are an Anime Show Finder. Help users find anime based on 
-        genre, mood, or similar shows they enjoy. 
-        Always provide the Title, a brief synopsis, and where to watch.
+        Get flight details
     """,
     tools=[
         McpToolset(
             connection_params=StreamableHTTPConnectionParams(
-                url="https://aeo-mcp-server.amdal-dev.workers.dev/mcp",
+                url="https://mcp.skiplagged.com/mcp",
             ),
         )
     ],
