@@ -72,10 +72,5 @@ a2a_app = A2AStarletteApplication(
 app.mount("/anime", a2a_app.build())
 
 
-@app.get("/.well-known/agent.json", include_in_schema=False)
-def redirect_agent_json():
-    return RedirectResponse(url="/anime/.well-known/agent.json")
-
-
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
