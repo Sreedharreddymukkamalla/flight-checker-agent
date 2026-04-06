@@ -31,12 +31,13 @@ app: FastAPI = get_fast_api_app(
     allow_origins=ALLOWED_ORIGINS,
     web=SERVE_WEB_INTERFACE,
 )
+app.router.redirect_slashes = False
 
 # === A2A Agent Configuration ===
 
 AGENT_URL = os.getenv(
     "AGENT_PUBLIC_URL",
-    "https://capital-agent-service-git-475756125529.us-central1.run.app/anime",
+    "https://capital-agent-service-git-475756125529.us-central1.run.app/anime/",
 )
 
 agent_card = AgentCard(
